@@ -1,0 +1,8 @@
+venv/
+.pytest_cashe
+**__pycache__/
+db.sqlite
+.env
+.coverage
+.vscode
+htmlcov/
