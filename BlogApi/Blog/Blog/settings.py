@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,13 +38,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    #internal
-    'posts',
-    'accounts',
-    
-    #external
-    'rest_framework'
+    # internal
+    "posts",
+    "accounts",
+    # external
+    "rest_framework",
+    "rest_framework.authtoken",
 ]
+
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -56,6 +59,24 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "Blog.urls"
+
+REST_FRAMEWORK = {
+    "NON_FIELD_ERRORS_KEY": "errors",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated"),
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "SIGNING_KEY" : SECRET_KEY,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    
+}
 
 TEMPLATES = [
     {

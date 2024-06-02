@@ -9,13 +9,14 @@ from .serializers import PostSerializer
 from django.shortcuts import get_object_or_404
 
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 
 class PostRetrieveViewSet(viewsets.ViewSet):
     """
     View of listing available posts
     """
-
+    permission_classes = [IsAuthenticated]
     def list(self, request: Request):
         queryset = Post.objects.all()
         serializer = PostSerializer(instance=queryset, many=True)
@@ -29,13 +30,13 @@ class PostRetrieveViewSet(viewsets.ViewSet):
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
-
 class PostCreateView(generics.GenericAPIView, mixins.CreateModelMixin):
     """
     View of creation new post
     """
 
     serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
 
     def post(self, request: Request, *args, **kwargs):
@@ -48,6 +49,7 @@ class PostUpdateView(generics.GenericAPIView, mixins.UpdateModelMixin):
     """
 
     serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
 
     def put(self, request: Request, *args, **kwargs):
@@ -60,6 +62,7 @@ class PostRemoveView(generics.GenericAPIView, mixins.DestroyModelMixin):
     """
 
     serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated]
     queryset = Post.objects.all()
 
     def delete(self, request: Request, *args, **kwargs):
