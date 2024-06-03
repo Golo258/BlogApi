@@ -28,3 +28,14 @@ class SignUpSerializer(serializers.ModelSerializer):
         user.save()
         Token.objects.create(user=user)
         return user
+
+
+class CurrentUserPostsSerializer(serializers.ModelSerializer):
+
+    posts = serializers.HyperlinkedRelatedField(
+        many=True, view_name="retrieve_posts", queryset=CustomUser.objects.all()
+    )
+
+    class Meta:
+        model = CustomUser
+        fields = ["id", "username", "email", "posts"]
