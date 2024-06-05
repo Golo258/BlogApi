@@ -1,4 +1,18 @@
 
 Application:
-    
-    Każdy użytkownik  
+    Workouts:
+    Diets:
+    Dashboard:
+    Analytics:
+    Members:
+        Settings - user settings
+
+
+Models:
+    Workouts:
+        1. WorkoutType - describe type of chosen workout
+            like FBW / Split / Calisthenic .etc
+
+        2.
+
+        2.TrainingSession - describe
