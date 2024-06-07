@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     #External
     'rest_framework',
+    'drf_yasg',
     #Internal
     'analytics',
     'dashboard',

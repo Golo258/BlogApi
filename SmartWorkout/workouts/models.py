@@ -84,7 +84,7 @@ class TrainingSession(models.Model):
     )
 
     def __str__(self):
-        return self.date
+        return self.notes
 
 
 
