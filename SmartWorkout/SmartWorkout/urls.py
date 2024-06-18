@@ -19,7 +19,11 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("workouts.urls"), name="workouts"),
+    path("api/workouts/", include("workouts.urls"), name="workouts"),
+    path("api/diets/", include("diets.urls"), name="diets"),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
+
+# /api/workoutsexercises/all
+# /api/workoutsexercises/create/
