@@ -1,0 +1,52 @@
+
+(Component - 4 files):
+    name.component:
+        html - szablon html komponentu
+            wyglad interfejsu
+        scss - akrusz stylów 
+        spec.ts  - plik testowy dla komponentu 
+            testy jednostkowe 
+        .ts - plik typescript - logika komponentu:
+            zmienne / metody / funkcje
+
+
+
+app: główny komponent aplikacji - musi być conajmniej jeden
+    .component.ts - typescript dla głownego
+    .component.html - szablon
+    .routes.ts - tworzenie tras komponentów:
+        określa jakie endpointy sa do danych komponentów
+
+    .config.ts - globalne ustawienia / konfiguracje 
+        zmienne środowiskowe itp
+        
+
+    @Component:
+        selector - reprezentator tagu html
+
+    Syntax angulara w html :
+        {{ title }} -- odwołanie się do zmiennej klasy
+        {{ wyrazenie JS }} - interpolacja
+        [ atrybut html ] - binding/ przejmowanie atrubutu
+            Po zwieciu w atrubucie możemy dawać java scripta
+            [class.atrubut] = "wyrazenie z js"
+
+        ( event ) - binding eventu
+            (click) = funkcja()
+            (keyup.enter) = funkcja()
+        $event - zmienna eventowa
+
+    useing libraries:
+        import [NgFor]
+            *ngFor ="let item of items"
+
+        @Input:
+            przekazywanie z jednego componentu wartosci do drugiego
+            Component odbierający
+                @Input() items: Item[]
+            Component wysyłający
+                <nazwa compunentu [items] ="items"/>
+
+        Zmienna /referencja elementu 
+        -  #nazwaZmiennej    / np z inputa wartosc
+            addTask(nazwaZmiennej)

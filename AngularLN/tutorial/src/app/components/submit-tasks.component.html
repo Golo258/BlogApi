@@ -1,0 +1,10 @@
+
+
+<input 
+    #searchedInput 
+    (keyup.enter)="submitText.emit(searchedInput.value); searchedInput.value=''" 
+    class="border-b" />
+<button 
+    (click)="submitText.emit(searchedInput.value); searchedInput.value = ''">
+    Add
+</button>
