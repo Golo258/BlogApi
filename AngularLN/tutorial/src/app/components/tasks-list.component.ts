@@ -1,6 +1,6 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Task } from '../Tasks';
+import { Task } from '../types/Tasks';
 @Component({
   selector: 'app-tasks-list',
   standalone: true,
@@ -8,8 +8,7 @@ import { Task } from '../Tasks';
   templateUrl: './tasks-list.component.html',
 })
 export class TasksListComponent {
-  @Input( {required : true}) tasks: Task[] = [];
-
+  @Input({ required: true }) tasks: Task[] = [];
   toggleDoneStatus(task: Task) {
     task.done = !task.done;
   }

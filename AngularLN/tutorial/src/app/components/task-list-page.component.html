@@ -1,0 +1,15 @@
+
+
+<div class="container">
+    <app-submit-tasks 
+        (submitText)="addTask($event)"
+    />
+    <app-tasks-list 
+        *ngIf="listState.state === 'success'"
+        class="block mt-4"
+        [tasks]="listState.result" 
+    />
+    <p *ngIf="listState.state === 'loading'">Loading ...</p>
+    <p *ngIf="listState.state === 'error'"> {{ listState.error.message }}</p>
+
+</div>

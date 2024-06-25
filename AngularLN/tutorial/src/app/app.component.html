@@ -1,6 +1,7 @@
-<h1 
-  class="text-orange-500 border-b bg-black py-4 text-x1 text-center">
-  {{ title }}
+
+<h1 class="text-orange-500 bg-black py-4 text-xl text-center">
+  Another boring todolist
 </h1>
-<app-submit-tasks (submitText)="addTask($event)"/>
-<app-tasks-list [tasks]=" tasks" />
+<main class="grid place-items-center pt-4">
+  <app-task-list-page />
+</main>
